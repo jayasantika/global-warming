@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Source+Sans+3:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 33% 96%;
+    --foreground: 200 25% 15%;
+
+    --card: 40 30% 98%;
+    --card-foreground: 200 25% 15%;
+
+    --popover: 40 30% 98%;
+    --popover-foreground: 200 25% 15%;
+
+    --primary: 168 50% 30%;
+    --primary-foreground: 40 33% 98%;
+
+    --secondary: 30 80% 55%;
+    --secondary-foreground: 40 33% 98%;
+
+    --muted: 40 20% 90%;
+    --muted-foreground: 200 10% 40%;
+
+    --accent: 30 80% 55%;
+    --accent-foreground: 40 33% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 40 20% 85%;
+    --input: 40 20% 85%;
+    --ring: 168 50% 30%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Custom tokens */
+    --energy-solar: 45 90% 55%;
+    --energy-wind: 200 60% 50%;
+    --energy-geo: 15 70% 45%;
+    --energy-hydro: 210 70% 55%;
+    --warming: 10 80% 50%;
+    --success: 145 60% 40%;
+    --formula-bg: 200 25% 12%;
+    --formula-fg: 45 90% 80%;
+    --quiz-correct: 145 60% 40%;
+    --quiz-wrong: 0 70% 55%;
+
+    font-family: 'Source Sans 3', system-ui, sans-serif;
+  }
+
+  .dark {
+    --background: 200 25% 10%;
+    --foreground: 40 33% 96%;
+    --card: 200 25% 13%;
+    --card-foreground: 40 33% 96%;
+    --popover: 200 25% 13%;
+    --popover-foreground: 40 33% 96%;
+    --primary: 168 50% 45%;
+    --primary-foreground: 200 25% 10%;
+    --secondary: 30 80% 55%;
+    --secondary-foreground: 200 25% 10%;
+    --muted: 200 20% 20%;
+    --muted-foreground: 40 20% 65%;
+    --accent: 30 80% 55%;
+    --accent-foreground: 200 25% 10%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 200 20% 22%;
+    --input: 200 20% 22%;
+    --ring: 168 50% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+  }
+
+  code, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer utilities {
+  .text-gradient-earth {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(168 50% 30%), hsl(200 60% 50%));
+  }
+
+  .text-gradient-energy {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(30 80% 55%), hsl(45 90% 55%));
+  }
+
+  .bg-gradient-hero {
+    background: linear-gradient(180deg, hsl(200 25% 15% / 0.85), hsl(168 50% 30% / 0.7));
+  }
+
+  .bg-gradient-section-warm {
+    background: linear-gradient(135deg, hsl(40 33% 96%), hsl(30 40% 92%));
+  }
+
+  .bg-gradient-section-cool {
+    background: linear-gradient(135deg, hsl(40 33% 96%), hsl(200 30% 92%));
+  }
+
+  .formula-box {
+    background: hsl(var(--formula-bg));
+    color: hsl(var(--formula-fg));
+    @apply rounded-xl p-6 font-mono text-lg shadow-lg;
+  }
+
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .scroll-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .scroll-reveal-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .scroll-reveal-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .scroll-reveal-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .scroll-reveal-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .scroll-reveal-scale {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .scroll-reveal-scale.visible {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
