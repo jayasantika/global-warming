@@ -1,6 +1,7 @@
 import HeroSection from "@/components/HeroSection";
 import EnergySourcesSection from "@/components/EnergySourcesSection";
 import GlobalWarmingSection from "@/components/GlobalWarmingSection";
+import CO2SimulationSection from "@/components/CO2SimulationSection";
 import ExampleProblemsSection from "@/components/ExampleProblemsSection";
 import QuizSection from "@/components/QuizSection";
 import { useState } from "react";
@@ -31,6 +32,9 @@ const Index = () => {
             </a>
             <a href="#pemanasan-global" className="text-muted-foreground hover:text-primary transition-colors">
               🌡️ Pemanasan Global
+            </a>
+            <a href="#simulasi-co2" className="text-muted-foreground hover:text-primary transition-colors">
+              🎛️ Simulasi CO₂
             </a>
             <a href="#contoh-soal" className="text-muted-foreground hover:text-primary transition-colors">
               📐 Contoh Soal
@@ -69,6 +73,7 @@ const Index = () => {
       <HeroSection />
       <EnergySourcesSection />
       <GlobalWarmingSection />
+      <CO2SimulationSection />
       <ExampleProblemsSection />
       <QuizSection />
 
